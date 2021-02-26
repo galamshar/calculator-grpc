@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package calculator;
+
+option go_package="github.com\\galamshar\\calculator-grpc\\calculator\\calculator_pb;calculator_pb";
+
+message PrimeNumberDecompositionRequest{
+  int32 number = 1;
+}
+
+message PrimeNumberDecompositionResponse{
+  repeated int32 answer = 1;
+}
+
+message ComputeAverageRequest{
+  repeated int32 numbers = 1;
+}
+
+message ComputeAverageResponse{
+  float answer = 1;
+}
+
+service CalculatorService{
+  rpc PrimeNumberDecomposition(PrimeNumberDecompositionRequest) returns (PrimeNumberDecompositionResponse) {};
+  rpc ComputeAverage(ComputeAverageRequest) returns (ComputeAverageResponse) {};
+}
